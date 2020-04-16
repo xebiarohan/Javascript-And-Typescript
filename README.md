@@ -88,9 +88,11 @@ JavaScript interprets numeric constants as hexadecimal if they are preceded by 0
 
     let x = 10;
     let y = new Number(10);
+    let z = new Number(10);
     
     x == y         // true
     x === y        // false
+    y ==z          // false object cannot be compared
     
     typeof x       // number
     typeOf y       //object

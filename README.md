@@ -97,5 +97,96 @@ JavaScript interprets numeric constants as hexadecimal if they are preceded by 0
     typeof x       // number
     typeOf y       //object
     
+JavaScript treats primitive values as objects when executing methods and properties
+
+#### toString()
+        
+        (10).toString();          // "10";
+        (10 + 3).toString();      /// "13"
+        
+#### toExponential()       
+returns a string, with a number rounded and written using exponential notation.
+
+        var x = 9.656;
+        x.toExponential(2);     // returns 9.66e+0
+        x.toExponential(4);     // returns 9.6560e+0
+        x.toExponential(6);     // returns 9.656000e+0
+        
+#### toFixed()
+returns a string, with the number written with a specified number of decimals:
+
+        let x = 9.962;
+        x.toFixed(1)        // "10.0"
+        x.toFixed(2)        // "9.96"
+        x.fixed(3)          // "9.962"
+it round off the value and can be used to work with money
+
+#### toPrecision()
+toPrecision() returns a string, with a number written with a specified length:
+
+        let x = 9.656;
+        x.toPrecision();        // returns "9.656"
+        x.toPrecision(2);       // returns "9.7"
+        x.toPrecision(4);       // returns "9.656"
+        x.toPrecision(6);       // returns "9.65600"
+        
+Difference between toFIxed() and toPrecision is that toFixed consider only the decimal numbers and toPrecision consider
+all numbers.
+
+#### valueOf()
+valueOf is used to check the value of the number object
+
+        let x = new Number(10);
+        x.valueOf()           // 10   
+
+We can use valueOf to compare 2 Objects or Object with primitive value.
+
+#### converting variable to number
+#### Number()
+
+        Number(true)      // 1
+        Number(false)     //0
+        Number(1)         // 1
+        Number(10.0)      // 10
+        Number()          // 0
+        Number("10")      //10
+        Number("10.33")   // 10.33
+        Number("alpha")   //NaN
+        Number(new Date("2017-09-30"));        //1506729600000  (milliseconds)
+        
+#### parseInt()     
+It will return only the integer value, will ignore the decimal value if present
+
+        parseInt()          //NaN
+        parseInt("10.33")  //NaN
+        parseInt(-10)      // -10
+        parseInt("10 20 30");   // returns 10
+        parseInt("10 years");   // returns 10
+        parseInt("years 10");   // returns NaN 
   
-  
+#### parseFloat()
+It will return the float value, spaces are allowed and it will only return the first value
+
+        parseFloat("10");        // returns 10
+        parseFloat("10.33");     // returns 10.33
+        parseFloat("10 20 30");  // returns 10
+        parseFloat("10 years");  // returns 10
+        parseFloat("years 10");  // returns NaN
+        
+#### Properties of Number
+
+        Number.MAX_VALUE	Returns the largest number possible in JavaScript(1.7976931348623157e+308)
+        Number.MIN_VALUE	Returns the smallest number possible in JavaScript (5e-324)
+        Number.POSITIVE_INFINITY	Represents infinity (returned on overflow) (Infinity)
+        Number.NEGATIVE_INFINITY	Represents negative infinity (returned on overflow) (-Infinity)
+        Number.NaN	Represents a "Not-a-Number" value (NaN)
+        Number.MIN_SAFE_INTEGER    (-9007199254740991)
+        Number.MAX_SAFE_INTEGER    (9007199254740991)
+    
+Number properties cannot be used on variables
+       
+        let minValue = x.MIN_VALUE     // undefined 
+        let minValue = Number.MIN_VAVLUE   // 5e-324
+        
+        
+        

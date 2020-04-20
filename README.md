@@ -189,4 +189,18 @@ Number properties cannot be used on variables
         let minValue = Number.MIN_VAVLUE   // 5e-324
         
         
+
+### String in Javascript
+
+We can declare string in single as well as double quotes
         
+        let a = "alpha"
+        let b = 'alpha'
+        
+We can use different quotes in string as long as they are not used to declate string
+
+        a = "he isn't going there"
+
+or if we want to use the same quote then we have to use escape chanracter
+
+       b = 'he isn\'t going there"

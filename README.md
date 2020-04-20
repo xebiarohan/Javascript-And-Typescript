@@ -190,13 +190,15 @@ Number properties cannot be used on variables
         
         
 
-### String in Javascript
+## String in Javascript
 
 We can declare string in single as well as double quotes
         
         let a = "alpha"
         let b = 'alpha'
-        
+       
+#### Escape Character      
+
 We can use different quotes in string as long as they are not used to declate string
 
         a = "he isn't going there"
@@ -204,3 +206,102 @@ We can use different quotes in string as long as they are not used to declate st
 or if we want to use the same quote then we have to use escape chanracter
 
        b = 'he isn\'t going there"
+       
+Other Escape characteers 
+
+        \'	'	Single quote
+        \"	"	Double quote
+        \\	\	Backslash
+        
+#### String length
+using length property we can check the length of string
+
+        let x = "alpha"
+        x.length         // 5
+        
+#### String as Object
+String can be of primitive type as well as object
+
+        let x = "alpha";
+        let y = new String("alpha");
+        let z = new String("alpha");
+value of two object cannot be compared directly
+        
+        y ==z   // false
+        x == y  // true
+        x ===z   // false
+        x === y.valueOf()   // true
+
+
+### String Methods
+
+#### indexOf()
+Founding a string in a string.It will return the first index number found of the matching string. index starts from 0. 
+indexOf("") will always be 0.
+
+        let x = "Please locate where 'locate' occurs!";
+        x.indexOf()            // -1
+        x.indexOf("")         // 0
+        x.indexOf("l")        // 1
+        x.indexOf("locate")   // 7
+
+#### lastIndexOf()
+It is reverse of indexOf(). It will return the last occurance of the string.In this search starts from backwards.
+
+        x.lastIndexOf()    // -1
+        x.lastIndexOf()    // 36 (equal to the length of the string)
+        x.lastIndexOf("locate") //21
+        x.lastIndexOf("loca")   //21
+ 
+both accepts a second parameter to tell optionally from which character to start search
+
+        x.indexOf("loca",10);        //21
+        x.lastIndexOf("loca",10);    // 7
+        
+#### search()
+It also takes the string to search and will return the first occurance of that string. It is differet from indexOf()
+in the way that it doesnot takes the second argument.
+
+        x.search("locate")   //21
+        x.search()           // 0   (-1 in case of indexOf())
+        x.search("")         // 0 
+        x.search("qas")      // -1
+
+#### Extracting string parts
+#### slice()
+It is used to extract a part of the string. It takes 2 arguments, first the starting index and second the ending index
+(end index not included).
+If we dont pass the second argument, it will take the length of the string as default value.
+
+        let x = "Please locate where 'locate' occurs!";
+        x.slice(1,5);     //"leas"
+        x.slice(0,0);     // ""
+        x.slice();         //"Please locate where 'locate' occurs!"
+        x.slice(0);        //"Please locate where 'locate' occurs!"
+        x.slice(1);        // "lease locate where 'locate' occurs!"
+   
+If we pass negative value then it will count the position from the end of the string.
+
+        x.slice(-1)     // "!"
+        x.slice(-16, -6)   //"'locate' o"
+   
+#### substring()
+Its similar to the slice() method, the only difference is this method cannot accept negative indexes.
+If we pass negative values it will behave as 0 is passed
+
+        x.substring();         //"Please locate where 'locate' occurs!"
+        x.substring(0);        //"Please locate where 'locate' occurs!"
+        x.substring(1);        // "lease locate where 'locate' occurs!"
+        x.substring(-1);       // "Please locate where 'locate' occurs!"
+        x.substring(-100);     // "Please locate where 'locate' occurs!"
+
+#### substr()
+This method takes length as the second parameter. If we pass negative value to it, it will search from the end
+of the string.
+
+        x.substr(2,10)    //"ease locat"
+        x.substr()        // "Please locate where 'locate' occurs!"
+        x.substr(0)       // "Please locate where 'locate' occurs!"
+        x.substr(1)       // "lease locate where 'locate' occurs!"
+        x.substr(-1)      // "!"
+        x.substr(-3,1)    // "r"

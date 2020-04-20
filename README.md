@@ -305,3 +305,67 @@ of the string.
         x.substr(1)       // "lease locate where 'locate' occurs!"
         x.substr(-1)      // "!"
         x.substr(-3,1)    // "r"
+        
+#### replace()
+This method replaces a value with a new one in given string. Replace is case sensitive.
+
+        let str = "My name is Bob";
+        str.replace("Bob","Alice");    // "My name is Alice"
+        str.replace("ALICE", "Mark");  // My name is Alice (case-sensitive)
+        
+To replace all matched string use (/ /g)
+
+        str = "Please visit India and India!";
+        var n = str.replace(/India/g, "Delhi");   // Please visit Delhi and Delhi
+
+
+#### toUppercase()
+It is used to convert string into uppercase
+    
+        let x = "bob";
+        x = x.toUppercase()   // BOB
+        
+#### toLowercase()
+It is used to convert string into lowercase
+
+        let y= "ALICE";
+        y = y.toLowercsae();     // alice
+        
+#### concat()
+It is used to merge strings. It takes 2 parameter. 1st one(optional) is the delimiter and 2nd is the string which we want
+to concat.
+    
+    let x = "My name is";
+    let y = "Bob";
+    x.concat(y);         // My name isBob;
+    x.concat(" ",y)      /// My name is Bob
+
+#### trim()
+It is used to trim the whitespaces from both the ends of the string.
+
+    let x = "    Bob    ";
+    x = x.trim();     // "Bob"
+    
+####  charAt()
+It is used to extract a single character at a particular index.
+
+    let x = "My name is Bob";
+    x.charAt()     // returns the first character
+    x.charAt(5)    // "a"
+
+#### charCodeAt()
+it is used to get the unicode at a particular index.
+
+    let x = "My name is Bob";
+    x.charCodeAt()    // returns the charCode of 1st character 77
+    x.charCodeAt(2)   // 32
+    
+#### split()
+Is is used to convert a string into array. It takes delimiter as parameter.
+
+    x = "My name is Bob";
+    x.split()   // ["MY NAME IS BOB"]
+    x.split("") // ["M", "Y", " ", "N", "A", "M", "E", " ", "I", "S", " ", "B", "O", "B"]
+    x.split(" ") // ["MY", "NAME", "IS", "BOB"]
+
+                

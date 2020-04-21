@@ -369,3 +369,53 @@ Is is used to convert a string into array. It takes delimiter as parameter.
     x.split(" ") // ["MY", "NAME", "IS", "BOB"]
 
                 
+
+### Arrays in Javascript
+JavaScript arrays are used to store multiple values in a single variable.
+
+#### Creating an array
+
+        let arr1 = [1,2,3,4];
+        let arr2 = new Array("A","B","C");
+        
+#### Accessing the Array elements
+
+        let names = ["Alice","Bob","Charlie"];
+        const firstName = names[0];      // "Alice"
+        const secondName = names[1]      // "Bob"
+        
+#### Changing particular element of Array
+
+        let names = ["Alice","Bob","Charlie"];
+        names[0] = "Deric";
+        console.log(names)   // ["Deric", "Bob", "Charlie"]
+
+we can dynamically increase the size of array.
+
+        names[3] = "Peter";  
+        console.log(names)     //["Deric", "Bob", "Charlie", "Peter"]
+        
+####  Arrays are object
+
+        typeOf names    // "object"
+        
+#### Adding Element
+        let numbers = [];
+        numbers[0] = 1;          //[1]
+        numbers.push(2);         //[1,2]
+        numbers[numbers.length] = 3;   //[1,2,3]
+        
+#### JavaScript does not support arrays with named indexes.In JavaScript, arrays always use numbered indexes.
+
+#### Checking if variable is an Array
+        let numbers = [];
+        let name = "alpha";
+        Array.isArray(numbers);     // true
+        Array.isArray(name);;       // false
+        
+        numbers instanceOf Array    // true
+        name instanceOf Array       // false
+        
+        
+        
+        

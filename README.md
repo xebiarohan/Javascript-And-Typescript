@@ -5,7 +5,7 @@ Javscript functions
 JavaScript has only one type of number. Numbers can be written with or without decimals.
 
     let x = 10; 
-    const y = 20;
+    const y = 20.0;
 
 Javascript numbers are always 64-bit floating point.
 
@@ -82,7 +82,7 @@ Infinity is a number
 #### Hexadecimal
 JavaScript interprets numeric constants as hexadecimal if they are preceded by 0x
 
-    let x - 0xFF          // 255
+    let x = 0xFF          // 255
   
 #### Numbers as Object
 
@@ -158,7 +158,7 @@ We can use valueOf to compare 2 Objects or Object with primitive value.
 It will return only the integer value, will ignore the decimal value if present
 
         parseInt()          //NaN
-        parseInt("10.33")  //NaN
+        parseInt("10.33")  //10
         parseInt(-10)      // -10
         parseInt("10 20 30");   // returns 10
         parseInt("10 years");   // returns 10

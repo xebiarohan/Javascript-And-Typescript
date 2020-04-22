@@ -116,6 +116,7 @@ returns a string, with a number rounded and written using exponential notation.
 returns a string, with the number written with a specified number of decimals:
 
         let x = 9.962;
+        x.toFixed()         // 10
         x.toFixed(1)        // "10.0"
         x.toFixed(2)        // "9.96"
         x.fixed(3)          // "9.962"
@@ -130,8 +131,8 @@ toPrecision() returns a string, with a number written with a specified length:
         x.toPrecision(4);       // returns "9.656"
         x.toPrecision(6);       // returns "9.65600"
         
-Difference between toFIxed() and toPrecision is that toFixed consider only the decimal numbers and toPrecision consider
-all numbers.
+Difference between toFIxed() and toPrecision is that toFixed consider only the decimal numbers and toPrecision consider all numbers. In toFixed if we dont pass any number ot will return the closest
+integer value and toPrecision will return the exact value.
 
 #### valueOf()
 valueOf is used to check the value of the number object
@@ -509,10 +510,39 @@ It takes 2 arguments
         const newArray = numbers.slice(2) //It will create a new array by removing first 2 elements
         console.log(newArray);  // [3,4,5,6];
 
-        const arr = numbers.slice(2,2)    // [1,2,5,6]
+        const arr = numbers.slice(2,2);    // [1,2,5,6]
         console.log(numbers)    // [1,2,3,4,5,6] still remian same
 
-        
 
-        
+#### sort()
+This method is used to sort array alphabetically
+
+        let names = ["beta","gamma","alpha"];
+        numbers.sort();     // ["alpha","beta","gamma"];
+
+        let numbers = [5,2,1,3,4];
+        numbers.sort();    // [1,2,3,4,5]
+
+we can pass custom compare method in sort as argument
+
+        numbers.sort((a,b) => { return a -b;});
+
+#### reverse()
+This method is used to reverse the order of the array.
+
+        let numbers = [1,2,3,4,5];
+        numbers.reverse();      // [5,4,3,2,1];
+
+        let names = ["beta","gamma","alpha"];
+        names.reverse();        // ["alpha","gamma","beta"];
+
+#### Max in an array 
+
+        let numbers = [1,2,3,4,5];
+        Math.max.apply(null,numbers)   // 5
+
+#### Min in an array
+
+        let numbers = [1,2,3,4,5];
+        Math.min.apply(null,numbers);  //1
         

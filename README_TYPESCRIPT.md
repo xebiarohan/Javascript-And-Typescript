@@ -113,3 +113,35 @@ This data type is used when we are not sure about the datatype or we know our ob
             arr.push(1);
             arr.push("alpha");
             arr.push({});
+
+### Union Types
+Union types is used when a variable can expect more than 1 data type value but defined number of data types. like a variable can have string or number in that case we use union types.
+
+            let x: number| string;
+            x = 10;   // works
+            x = "alpha"  //works
+            x ={}   // ERROR
+
+### Literal types
+It is used when we know exactly which all value can come in an variable. We can declare variable
+with those literal types like
+
+            let role : 'ADMIN' | 'SUPERUSER';
+
+            role = 'ADMIN';    // works fine
+            role = 'SUPERUSER' // works fine
+            role = 'READONLY'  // ERROR
+
+### Type Alias
+It is used to remove redundant lengthy datatype declatations especially in case of union types.
+
+            let x: number | string;
+            let y: number | string;
+
+Instead of writing redundant union type declaration we can create an alias like
+
+            type combinable = number | string;
+            let x = combinable;
+            let y = combinable;
+
+            

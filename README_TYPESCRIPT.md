@@ -73,7 +73,7 @@ In Typescript we can restrict as well as can define the type of each value which
 
 ### Core Types
 
-In Javascript we have 5g basic datatypes i.e.
+In Javascript we have 5 basic datatypes i.e.
 
             number   // 1,-1,1.1
             string   // 'Hi', "Hi", `Hi`
@@ -81,3 +81,35 @@ In Javascript we have 5g basic datatypes i.e.
             object   // {age:30}
             Array    //  [1,2,3,4]
 
+In typescript we get some new data types like :
+
+#### Tuple
+Its a fixed length and fixed data type array. 
+
+            let tuple1: [number,string] = [12,"author"];
+            let tuple2: [string] = ["alpha"];
+            let tuple3 : [string,object] = ["beta", {}];
+
+we have to decrale it using an array like structure. In that we can define how many elements we 
+want and of what type.
+
+#### Enum
+Enums are used to deal with interrelated constant values.
+
+we can define it like :
+
+            enum Role {
+                  SOFTWARE_ENGINEER, SCRUM_MASTER, MANAGER
+            }
+
+and we can use it like :
+
+            let role = Role.SOFTWARE_ENGINEER
+
+#### any
+This data type is used when we are not sure about the datatype or we know our object can have multiple datatype values
+
+            let arr: any[];
+            arr.push(1);
+            arr.push("alpha");
+            arr.push({});

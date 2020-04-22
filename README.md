@@ -417,5 +417,102 @@ we can dynamically increase the size of array.
         name instanceOf Array       // false
         
         
+### Array Methods
+
+#### toString()
+This method is used to get comma seperated string from array.
+
+        let numbers = [1,2,3,4];
+        numbers.toString();    //1,2,3,4
+
+#### join()
+This method also convert an array into string. It also takes delimiter value to seperate the
+array values.
+
+        let numbers = [1,2,3];
+        numbers.join()     // 1,2,3
+        numbers.join("")   // 123
+        numbers.join(":")  //1:2:3
+
+#### pop() 
+This method is used to remove an element from the last of an array. It returns the popped value.
+
+        let numbers = [1,2,3];
+        numbers.pop()          // It will return 3
+        console.log(numbers)   // [1,2];
+
+#### push()
+This method is used to push an element at the last of an array.It returns the length of the array
+after insertion.
+
+        let numberes = [1,2];
+        numbers.push(4);   // it will return 3
+
+#### shift()
+This method is similar to the pop() method . It just works on the first element of an array.
+
+        let numbers = [1,2,3,4];
+        numbers.shift();   // It will return 1st element 1
+        console.log(numbers)    // [2,3,4]
+
+#### unshift()
+This method is similar to push method. It will insert value in front of an array.
+
+        let numbers = [2,3,4,5];
+        numbers.unshift(1);   // It will return 3 the new length
+         console.log(numbers)    // [1,2,3,4,5]
+
+#### length
+It is a property of array which gives the length of an array
+
+        let numbers = [2,3,4,5];
+        numbers.length    // 4
+
+#### Delete
+As an array is an object so, we can delete its elements.Its not recommended because it will
+leave empty values.        
+
+        let numbers = [1,2,3,4];
+        delete numbers[0];     // true
+        console.log(numbers)    // [empty,2,3,4];
+  
+#### splice()
+This method can be used to both insert and remove elements from an array at any index.
+It takes multiple arguments
+1st argument is the index from which we want to start
+2nd argument is the number of elements which we want to remove
+and remaining are the elements which we want to add after remomving the elements.
+
+        let numbers = [1,2,3,4];
+        numbers.splice(2,1,10,12); // It will remove 3 and add 10, 12
+        console.log(numbers)       // 1,2,10,12,4
+
+We can just remove the elements also without adding new values
+
+        numbers.spplice(0,1);   // removes the first element
+
+#### concat()
+This method is used to merge 2 or more arrays.
+
+        let num1 = [1,2];
+        let num2 = [3,4];
+        let num3 = [5,6];
+        const numbers = num1.concat(num2).concat(num3);
+
+#### slice()
+This method is used to create a new array by removing some elements from an array.
+It takes 2 arguments
+1st : the index from where we want to start (default value is 0, So optional argument)
+2nd : number of elements which we want to remove from out new array.
+
+        let numbers = [1,2,3,4,5,6];
+        const newArray = numbers.slice(2) //It will create a new array by removing first 2 elements
+        console.log(newArray);  // [3,4,5,6];
+
+        const arr = numbers.slice(2,2)    // [1,2,5,6]
+        console.log(numbers)    // [1,2,3,4,5,6] still remian same
+
+        
+
         
         

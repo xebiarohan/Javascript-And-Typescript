@@ -73,7 +73,7 @@ In Typescript we can restrict as well as can define the type of each value which
 
 ### Core Types
 
-In Javascript we have 5 basic datatypes i.e.
+In Javascript we have 5g basic datatypes i.e.
 
             number   // 1,-1,1.1
             string   // 'Hi', "Hi", `Hi`

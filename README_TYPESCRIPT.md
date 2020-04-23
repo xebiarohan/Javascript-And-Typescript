@@ -114,6 +114,55 @@ This data type is used when we are not sure about the datatype or we know our ob
             arr.push("alpha");
             arr.push({});
 
+#### void            
+It is used as a function datatype, when we dont want to return any value from a function
+
+            function print(): void {
+                  console.log("Hello world");
+            }
+
+#### Function
+It is used to specify that a variable is of function type. 
+
+            function add(num1: number, num2: number): number {
+                  return num1+ num2;
+            }            
+            let combiner:: Function;
+            combiner = 10      // !!!ERROR!!!
+            combiner = add;     // works fine
+
+            console.log(combiner(5,10));   // 15
+
+We can be more specific like which kind of method we can assign to a variable like how many parameter it takes and what should be the return type of the method.
+
+            let combiner: (num1: number,num2: number) => number;
+
+#### unknown
+Its also a new datatype. This is used when we are not sure about the datatype of the variable. It is little different from any in the way that we cannot use this variable anywhere like
+
+            let name: unknown;
+            name = 1;    // Works
+            name = "alpha"  // works
+
+            let firstName: string;
+            firstName = name    // !!! ERROR!!! because both have different types
+
+            if(typeof name === "string") {
+                  firstName = name;    // works
+            }
+
+Its better than any because it forces used to check the type before using it anywhere.
+
+#### never
+This datatype is used for function which can never return any value like in case of 
+a general exception method.
+
+            const generalException: never = (message: string,code: number) => {
+                  throw {message: message,errorCode: code};
+            }
+
+
+
 ### Union Types
 Union types is used when a variable can expect more than 1 data type value but defined number of data types. like a variable can have string or number in that case we use union types.
 
@@ -144,4 +193,3 @@ Instead of writing redundant union type declaration we can create an alias like
             let x = combinable;
             let y = combinable;
 
-            

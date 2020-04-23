@@ -546,3 +546,127 @@ This method is used to reverse the order of the array.
         let numbers = [1,2,3,4,5];
         Math.min.apply(null,numbers);  //1
         
+
+
+### ECMAScript6 -ECMAScript 2015
+Its the protocol on which Javascript works. So we can say its javascript version.
+
+#### Features introduced in EC6
+
+#### let keyword
+The let statement allows us to declare a variable with block scope and we cannot redeclare the same
+object in the same scope
+
+        var x = 10;
+        {
+                let x = 2;
+                let x = 4;   // ERROR  (cant redeclare)
+                x = 5;       // works fine
+                // In this block x is equal to 5
+        }
+        // here x is 10
+
+#### const keyword
+The const statement is same as let , the only difference is its value cant be changed.
+They also have block scope.
+
+        var x = 10;
+        {
+                const x = 2;
+                // In this block x is equal to 2
+                x = 4;    // ERROR
+        }
+        // here x is 10
+
+####  Arrow Functions
+Arrow functions changed the way we write a function        
+
+        //In Javascript 5
+        var x = function add(num1,num2) {
+                return num1 + num2;
+        }
+
+        // In Javascript6 or ES6
+        const y = (num1,num2) => num1+ num2;
+
+or if we have multiple lines of code to evaluate then we can wrap it in curly brackets and can
+return the result.
+
+        const z = (num1,num2) => {
+                console.log(num1 + " " + num2);
+                return num1*num2;
+        }
+
+Some properties of Arrow functions
+They dont have there own `this`.
+Arrow function are not hoisted. They must be defined before use.
+Always use const to define them because there defination are not going to change.
+
+#### Classes in Javascript
+ES6 introduced classes.
+
+A class is a type of function but instead of using function keyword we use class keyword to declare
+them and properties are assigned inside constructor.
+
+The constructor method is called always when class object is initialized
+
+        class Person {
+                let personName;
+                constructor(personName) {
+                        this.personName = personName;
+                }
+
+                let getName = () => personName;
+        }
+
+        let person1 = new Person("Alice");
+        person1.getName();       // Alice
+
+#### Default parameter values
+In ES6 we can allow function parameter to have default parameter value.
+
+        const mult = (x,y = 10) => x*y;
+
+        mult(5);   // 50
+
+#### Array.find()
+This method is used to find the value from an array as per the condition passed as a parameter to
+it. It will return the first value which satisfies the condition.
+
+        let numbers = [1,2,3,4,5];
+        numbers.find(x => x >2);   // It will return 3
+
+####  Array.findIndex()     
+Its same as the Array.find(), the only difference is it will return the index of the value which
+satisfies function condition.
+
+        let numbers = [1,2,3,4,5];
+        numbers.findIndex(x => x >2)   // It will return 2 (index)
+
+#### Added new Number properties
+
+        Number.EPSILON    //2.220446049250313e-16
+        Number.MIN_SAFE_INTEGER   //-9007199254740991
+        Number.MAX_SAFE_INTEGER   //9007199254740991
+
+#### Number.isInteger()
+It is used to check it a value is integer or not
+
+        Number.isInteger(10)   // true
+        Number.isInteger(10.5) // false
+
+#### Number.isSafeInteger()
+A safe integer is an integer that can be exactly represented as a double precision number.
+
+        Number.isSafeInteger(10);    // returns true
+        Number.isSafeInteger(12345678901234567890);  // returns false
+
+#### isFinite()
+Is is used to check if a number is finite or not
+It will return false if value is Infinite or NaN otherwise true.
+
+        isFinite(10/1)    // finite
+        isFinite(10.0)    // false
+        isFinite("alpha") // true
+
+        

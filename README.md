@@ -669,4 +669,24 @@ It will return false if value is Infinite or NaN otherwise true.
         isFinite(10.0)    // false
         isFinite("alpha") // true
 
-        
+#### isNaN()
+It will return true when the value is not a number else return false
+
+        isNaN()    // true
+        isNaN("")  // false
+        isNaN("alpha")  // true
+        isNaN(1)    // false
+        isNaN(1.1)  // false
+        isNaN(true)  //false
+
+#### Exponential Operator
+The exponentiation operator (**) raises the first operand to the power of the second operand.
+previously we have to use Math.pow() function like
+  
+        Math.pow(5,2)    //25
+Now
+
+        let x = 5**2;    // 25
+
+          
+

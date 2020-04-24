@@ -193,3 +193,51 @@ Instead of writing redundant union type declaration we can create an alias like
             let x = combinable;
             let y = combinable;
 
+
+### Typescript compiler
+Typescript compiler is used to convert the typescript file into javascript.
+command to compile file.
+
+            tsc filename.ts
+
+We can configure different properties during compiling code like watch mode.
+Watch mode means when ever we change any value and save it, It will recompile
+the file.
+
+            tsc filename.ts -w
+
+If we have multiple ts file in our project then we have to declare it a ts project
+using
+
+            tsc --init
+
+It will create tsconfig.json file. Now if we run tsc file then it will compile all
+the typescript files which are used in index.html file.
+
+So now we can run watch mode on all these files using
+
+            tsc --watch  / tsc -w
+
+### tsconfig.json
+tsconfig.json files is used to configure which all files we have to compile and how to compile
+those files.
+
+We can have different properties in tsconfig like 
+
+#### exclude
+In this we can add ts files which we dont want to compile.
+
+#### includes
+In this we can define which all files we want to include for compilation. By default all the 
+files which are there in index.html and are not there in exclude will get compiled.
+
+#### files
+It is similar to the includes, the only difference is that in includes we can define folders
+but in files we can only define the file names.
+
+#### compilerOptions
+Compiler options are used to configure the way in which typescript file will configure it includes
+different properties like
+
+i) target : which states that in which javascript version we want after compilation.
+ii) allowJs : tsc will compile js file as well

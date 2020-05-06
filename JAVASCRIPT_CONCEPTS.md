@@ -21,3 +21,28 @@ hoist();
 console.log(a)   // 20   a becomes global variable
 console.log(b)   // error a is not defined (it is defined in hoist method scope not global)
 ```
+
+#### Difference between var, let and const
+In case of var :
+
+```js
+console.log(x);  // undefined
+var x = 10;
+```
+
+It will give undefined because only the declaration is hoisted not the initialization. So it will be interpreted as :
+
+```js
+var x;
+console.log(x);
+x  = 10;
+```
+Same behaviour of var is in functional scope also.
+```js
+function getName() {
+console.log(name);  
+var name = "Max";
+}
+
+getName();   // undefined
+```

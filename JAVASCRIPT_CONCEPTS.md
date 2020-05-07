@@ -255,7 +255,7 @@ Object.isFrozen()
 This methods seals the the current object properties and methods. We cannot add any new properties and methods but we can
 change the current properties and methods.
 
-These sealed object cannot be deleted or reconnfigured.
+These sealed object properties cannot be deleted.
 
 ```js
 let name = {
@@ -282,7 +282,8 @@ Object.isSealed(namme)
 This is similar to Object.seal() in terms that in this also we cannot add any new property or method but we can change the 
 existing once. 
 
-The difference between Object.seal() and Object.preventExtension() is that in preventExtesion() we can delete and can reconfigured.
+The difference between Object.seal() and Object.preventExtension() is that in preventExtesion() we can delete the current
+properties.
 
 Object.isExtensible() is an Object method to check if an object is extensible by passing the object as the argument.
 

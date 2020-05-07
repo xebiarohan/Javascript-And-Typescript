@@ -210,3 +210,40 @@ var getFullName = class fullName {
 }
 ```
   
+### 2. Immutability In Javascript
+We can achieve immutability with 3 different methods and of different level.
+
+What is a object in javascript ? :
+Object in javascript can be represented by an entity having different properties and behaviour/methods.
+```js
+let name = {
+  firstName: "Virender",
+  lastName: "Sehwag",
+  
+  getFullName() {
+    return firstName + " " + lastName;
+  }
+}
+```
+
+#### Object.freeze()
+If we pass an object in this method then we cannot add a new property, delete a property, or even update a current property.
+
+Trying to make any changes mentioned above after an object being frozen will fail and will throw errors in strict mode.
+
+```js
+let name = {
+  firstName: "Virender",
+  lastName: "Sehwag",
+  
+  getFullName() {
+    return firstName + " " + lastName;
+  }
+}
+
+Object.freeze(name); 
+
+name.middleName = "R"  // !!!ERROR!!! in strict mode
+
+```
+

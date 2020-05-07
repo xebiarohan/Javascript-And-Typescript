@@ -131,4 +131,82 @@ let printFn = function(var name) {
 
 printFn is initialized with undefined , its not a function when we are invoking it thats why we get this error.
 
+#### Order of precedence
+Function declarations take precedence over variable declarations
+Variable assignments take precedence over function declarations
 
+```js
+var name = "Tom";
+
+function name() {
+  console.log("Harry");
+}
+
+console.log(typeof name);  // string (variable assignment take precedence)
+```
+
+```js
+var name;
+
+function name() {
+  console.log("Harry");
+}
+
+console.log(typeof name);   // function (function declaration take precedence)
+```
+
+####  Hoisting Classes
+Hoisting classes is same as function hoisting. It also have 2 types
+
+Class declarations
+Class exporessions
+
+#### Class declarations
+Much like their function counterparts, JavaScript class declarations are hoisted. However, they remain uninitialised until evaluation. This effectively means that you have to declare a class before you can use it.
+
+```js
+var name = fullName();
+name.firstName= "Sourav";
+name.lastName="Ganguly";
+console.log(name);   // Reference error!!!
+
+class fullName {
+  constructor(firstName,lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+}
+```
+
+So we have to declare and define class on top of code where we are using it
+
+```js
+class fullName {
+  constructor(firstName,lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+}
+
+var name = fullName();
+name.firstName= "Sourav";
+name.lastName="Ganguly";
+console.log(name);  // Output {firstName: "Sourav", lastName: "Ganguly"}
+```
+#### ClassExpression
+Much like their function counterparts, class expressions are not hoisted.
+
+```js
+var name = getFullName();
+name.firstName= "Sourav";
+name.lastName="Ganguly";
+console.log(name);   // TypeError!!! getFullName is not a constructor
+
+var getFullName = class fullName {
+  constructor(firstName,lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+}
+```
+  

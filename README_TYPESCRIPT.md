@@ -5,8 +5,9 @@ Typescript is a superset of javascript. Typescript compiles to give javascript f
 As browser dont support typescript directly
 
 Installing typescript in your system
-
-            npm install -g typescript
+```ts
+npm install -g typescript
+```
 
 There is a typescript compiler which compiles typescript code to javasript
 

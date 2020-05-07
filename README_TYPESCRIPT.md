@@ -12,56 +12,66 @@ npm install -g typescript
 There is a typescript compiler which compiles typescript code to javasript
 
 Command to compile code :
-      
-      tsc filename.ts
-    
-It will generate same name javascript file at same folder location
 
-      filename.js
+```js
+tsc filename.ts
+```
+
+It will generate same name javascript file at same folder location
+```js
+filename.js
+```
+      
       
 ### DataType of Arguments in function
 
 Typescript allow us to specify the datatype of the arguments which we are expecting in a method
-for example in Javascript
+for example in Javascript if we want to write a method to add 2 numbers then we can write it as
+```js
+function add(num1, num2) { return num1 + num2};
+```
+            
 
-            function add(num1, num2) { return num1 + num2};
-
-but here we can pass string also, it will concat the value.
+but here we can pass string also, it will concat the value and that what we dont want.
 So now in  typescript :           
-
-            function add(num1: number, num2: number) { return num1 + num2};
+```
+function add(num1: number, num2: number) { return num1 + num2};
+ ```           
 
 It will give compile time error if we try to pass string as an argument to this function
 
 Another example
 In Javascript we can declare a variable like
-
-            let value;
+```js
+let value;
+```
 
 Now we can put any data type value to this value variable. we cannot restrict it on compile time
 In Typescript
-
-            let value: number;
-
+```js
+let value: number;
+```
 Now if we try to put anything other than number to this variable, it will give compile time error.            
       
 Typescript also provides type-inference. which means if we dont provide the data type to any 
 variable then it will take the datatype of the first value assigned to it like
-
-            let key;
-            key = 10;
-            key = "alpha"   // this will give error because the type of key is set to number.
+```js
+let key;
+key = 10;
+key = "alpha"   // this will give error because the type of key is set to number.
+ ```           
 
 ### Object in Javascript and Typescript            
 In Javascript we can create an object and can later add the key value pair in it. There is no
 way we can restrict that like :
-
-            let person = {};
-            person.name = "alpha";
-            console.log(person)  // {name: "alpha"};
+```js
+let person = {};
+person.name = "alpha";
+console.log(person)  // {name: "alpha"};
+```
 
 In Typescript we can restrict as well as can define the type of each value which we can add in our object like
-
+```js
             let person:  {
                   name: string,
                   age: number
@@ -71,25 +81,28 @@ In Typescript we can restrict as well as can define the type of each value which
             person.age = 25;
             person.hobbies = ["singing","coding"]    // compile time error because hobbies is not  
                                                      // defined in object
+```
 
 ### Core Types
 
 In Javascript we have 5 basic datatypes i.e.
-
+```js
             number   // 1,-1,1.1
             string   // 'Hi', "Hi", `Hi`
             boolean  // true false
             object   // {age:30}
             Array    //  [1,2,3,4]
+```
 
 In typescript we get some new data types like :
 
 #### Tuple
 Its a fixed length and fixed data type array. 
-
+```js
             let tuple1: [number,string] = [12,"author"];
             let tuple2: [string] = ["alpha"];
             let tuple3 : [string,object] = ["beta", {}];
+```
 
 we have to decrale it using an array like structure. In that we can define how many elements we 
 want and of what type.
@@ -98,10 +111,11 @@ want and of what type.
 Enums are used to deal with interrelated constant values.
 
 we can define it like :
-
+```js
             enum Role {
                   SOFTWARE_ENGINEER, SCRUM_MASTER, MANAGER
             }
+```
 
 and we can use it like :
 
@@ -109,22 +123,24 @@ and we can use it like :
 
 #### any
 This data type is used when we are not sure about the datatype or we know our object can have multiple datatype values
-
+```js
             let arr: any[];
             arr.push(1);
             arr.push("alpha");
             arr.push({});
+```
 
 #### void            
 It is used as a function datatype, when we dont want to return any value from a function
-
+```js
             function print(): void {
                   console.log("Hello world");
             }
+```
 
 #### Function
 It is used to specify that a variable is of function type. 
-
+```js
             function add(num1: number, num2: number): number {
                   return num1+ num2;
             }            
@@ -133,67 +149,75 @@ It is used to specify that a variable is of function type.
             combiner = add;     // works fine
 
             console.log(combiner(5,10));   // 15
+```
 
 We can be more specific like which kind of method we can assign to a variable like how many parameter it takes and what should be the return type of the method.
-
+```js
             let combiner: (num1: number,num2: number) => number;
+```
 
 #### unknown
-Its also a new datatype. This is used when we are not sure about the datatype of the variable. It is little different from any in the way that we cannot use this variable anywhere like
-
+Its also a new datatype. This is used when we are not sure about the datatype of the variable. 
+```js
             let name: unknown;
             name = 1;    // Works
             name = "alpha"  // works
+```
 
+It is little different from any in the way that we cannot use this variable anywhere like
+```js
             let firstName: string;
-            firstName = name    // !!! ERROR!!! because both have different types
+            firstName = name;    // !!! ERROR!!! compiler dont know name is having a string
 
             if(typeof name === "string") {
                   firstName = name;    // works
             }
+```
 
-Its better than any because it forces used to check the type before using it anywhere.
+Its better than 'any' because it forces used to check the type before using it anywhere.
 
 #### never
 This datatype is used for function which can never return any value like in case of 
 a general exception method.
-
+```js
             const generalException: never = (message: string,code: number) => {
                   throw {message: message,errorCode: code};
             }
-
+```
 
 
 ### Union Types
 Union types is used when a variable can expect more than 1 data type value but defined number of data types. like a variable can have string or number in that case we use union types.
-
+```js
             let x: number| string;
             x = 10;   // works
             x = "alpha"  //works
             x ={}   // ERROR
+```
 
 ### Literal types
 It is used when we know exactly which all value can come in an variable. We can declare variable
 with those literal types like
-
+```js
             let role : 'ADMIN' | 'SUPERUSER';
 
             role = 'ADMIN';    // works fine
             role = 'SUPERUSER' // works fine
             role = 'READONLY'  // ERROR
+```
 
 ### Type Alias
 It is used to remove redundant lengthy datatype declatations especially in case of union types.
-
+```js
             let x: number | string;
             let y: number | string;
-
+```
 Instead of writing redundant union type declaration we can create an alias like
-
+```js
             type combinable = number | string;
             let x = combinable;
             let y = combinable;
-
+```
 
 ### Typescript compiler
 Typescript compiler is used to convert the typescript file into javascript.

@@ -244,6 +244,50 @@ let name = {
 Object.freeze(name); 
 
 name.middleName = "R"  // !!!ERROR!!! in strict mode
-
+name.firstName = "Sachin" // ERROR!!! in strict mode
 ```
+Object.isFrozen() is an Object method to check if an object is frozen by passing the object as the argument.
+```js
+Object.isFrozen()
+```
+
+#### Object.seal()
+This methods seals the the current object properties and methods. We cannot add any new properties and methods but we can
+change the current properties and methods.
+
+These sealed object cannot be deleted or reconnfigured.
+
+```js
+let name = {
+  firstName: "Virender",
+  lastName: "Sehwag",
+  
+  getFullName() {
+    return firstName + " " + lastName;
+  }
+}
+
+Object.seal(name);
+
+name.middleName = "R"   // ERROR!!! in strict mode
+name.firstName = "Sachin"  // Works!!!
+```
+Object.isSealed() is an Object method to check if an object is sealed by passing the object as the argument.
+
+```js
+Object.isSealed(namme)
+```
+
+#### Object.preventExtension()
+This is similar to Object.seal() in terms that in this also we cannot add any new property or method but we can change the 
+existing once. 
+
+The difference between Object.seal() and Object.preventExtension() is that in preventExtesion() we can delete and can reconfigured.
+
+Object.isExtensible() is an Object method to check if an object is extensible by passing the object as the argument.
+
+```js
+Object.isExtensible(name)
+```
+
 

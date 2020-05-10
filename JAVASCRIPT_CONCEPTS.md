@@ -291,7 +291,7 @@ Object.isExtensible() is an Object method to check if an object is extensible by
 Object.isExtensible(name)
 ```
 
-### 2.Closure
+### 3.Closure
 A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function’s variables — a scope chain.
 
 Scope includes 

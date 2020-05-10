@@ -393,6 +393,15 @@ printName();   // Peter
 If we create 2 instance of inner function like
 
 ```js
+function getAddTenFunction() {
+const b = 10;
+
+function add(a){
+  return (a + b);
+}
+
+return add;
+}
 let addFn1 = getAddTenFunction();
 let addFn2 = getAddTenFunction();
 ```

@@ -291,4 +291,111 @@ Object.isExtensible() is an Object method to check if an object is extensible by
 Object.isExtensible(name)
 ```
 
+### 2.Closure
+A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function’s variables — a scope chain.
 
+Scope includes 
+Inner function properties
+Outer function properties(enclosing function)
+global properties.
+
+Lets check it with an example
+
+```js
+function getAddTenFunction() {
+const b = 10;
+
+function add(a){
+  return (a + b);
+}
+
+return add;
+}
+```
+Here we have 2 functions getAddTenFunction() and add(). 
+The variables in scope chain of 1st function is only b (as there is no outer function and global variable).
+The variables in scope chain of 2nd function is a and b. (b is in outer function).
+
+These is one more property of javascript that Once a function completes its execution, any variables that were defined inside the function scope cease to exist or in other words we cannot access them.
+
+So I call the outer function in our example
+
+```js
+let addFn = getAddTenFunction();
+```
+
+It will return the inner function and the execution of outer function is completed and all the properties off
+outer function is no more exist.
+
+Now we call the inner function.
+
+```js
+const value1 = addFn(20);
+```
+As here we are adding a and b. a is provided as in parameter but b, we just said that the all the properties 
+of a function no more exist after its execution gets completed. So from where we will get the value of b.
+
+The inner function can access the variables of the enclosing function due to CLOSURE in JavaScript. In other words, the inner function preserves the scope chain of the enclosing function at the time the enclosing function was executed, and thus can access the enclosing function’s variables.
+
+we can check this scope chain in console by 
+```js
+console.dir(addFn)    (inner function)
+
+
+addFn(a)
+length: 1
+name: "addFn"
+arguments: null
+caller: null
+prototype: {constructor: ƒ}
+__proto__: ƒ ()
+[[FunctionLocation]]: VM680:4
+[[Scopes]]: Scopes[3]
+0: Closure (getAddtwentyFunction)
+b: 20
+1: Script {u: undefined, a: ƒ}
+2: Global {parent: Window, opener: null, top: Window, length: 0, frames: Window, …}
+
+```
+
+If we create 2 instance of inner function like
+
+```js
+let addFn1 = getAddTenFunction();
+let addFn2 = getAddTenFunction();
+```
+
+These 2 functions addFn1 and addFn2 will have seperate scope chain. Change in 1 chain wont reflect in second one.
+
+Example :
+
+```js
+function outer() {
+var b = 10;
+var c = 100;
+   function inner() {
+        
+         var a = 20; 
+         console.log("a= " + a + " b= " + b);
+         a++;
+         b++;
+    }
+   return inner;
+}
+var X = outer();  // outer() invoked the first time
+var Y = outer();  // outer() invoked the second time
+
+X(); // X() invoked the first time
+X(); // X() invoked the second time
+X(); // X() invoked the third time
+Y(); // Y() invoked the first time
+```
+
+result will be
+
+```js
+a=20 b=10
+a=20 b=11
+a=20 b=12
+a=20 b=10
+```

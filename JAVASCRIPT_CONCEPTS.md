@@ -358,6 +358,38 @@ b: 20
 
 ```
 
+Closure with global variable
+
+Simplest example
+
+```js
+let name = "alpha";
+
+function printName() {
+  console.log(name);
+}
+
+printName();   // alpha
+```
+
+As global variable name is in scope chain of printName function So we can acccess the name property which is defined
+in global scope.
+It will always gives us the latest value like :
+
+```js
+let name = "Max";
+
+function printName() {
+  console.log(name);
+}
+name = "Peter"
+printName();   // Peter
+
+name = "Alex"
+printName();   // Peter
+
+```
+
 If we create 2 instance of inner function like
 
 ```js

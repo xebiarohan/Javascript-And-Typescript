@@ -440,3 +440,111 @@ a=20 b=11
 a=20 b=12
 a=20 b=10
 ```
+
+### 4.Promises in Javascript
+
+A promise is an Object that will produce a single asyncronous value. 
+We know that we will get a value but dont know when.
+
+Promises have 3 states :
+
+#### Pending: We are still waiting for the response.
+#### Fulfilled: Success response from the promise
+#### Rejected: error or unexpected response from the promise
+
+#### Creating a promise :
+Promise contains two functions (response and reject)
+
+```js
+let samplePromise = new Promise((response,reject) => {
+  if(some condtion) {
+    response({value: 'response Value'});
+  } else {
+    reject({error : 'Failed!!!'})
+  }
+})
+
+```
+
+Here we created  a sample promise. So when someone execute this promise then based on the condition it will get value from
+either response or reject.
+
+lets take an example:
+we will create a user data promise. It will return userData if data is present or will return error if user is not present.
+
+```js
+let userData = (user) => new Promise ((response,reject) => {
+ if(user === "Sachin") {
+    response({userName: 'Sachin',age: 40})
+ } else {
+    reject({message: 'User Not found'});
+ }
+});
+
+```
+So here we created a userData promise , that will take a user and checks if userName is 'Sachin' then it will return a response else it will return a reject.
+
+#### Consuming a promise :
+
+we subscribe to a promise using .then method. In .then method we get 2 type of functions (onFulfilled and onRejected).
+
+```js
+promise.then(
+  onFulfilled?: Function,
+  onRejected?: Function
+) => Promise
+
+```
+
+If response is executed in promise then  onFulfilled method is executed, If reject is executed then onRejected will execute.
+
+```js
+userData('Sachin').then((fulfilled) => {
+    console.log(fulfilled)
+}).error((error) => {
+  console.log(error.message);
+});
+
+```
+
+In this case the output will be 
+```js
+{userName: 'Sachin',age: 40}
+```
+
+because 'Sachin' user name data is present .
+
+#### Chaining of promises 
+In the previous example we are printing the output on console when we get the response. Here instead of printing we can 
+again return a new promise.
+
+lets create a new promise first :
+
+```js
+let getDetail = (userDetails) => new Promise((response,reject) => {
+let message = 'User name is ' + userDetails.userName + ' and age is '+ userDetails.age;
+response(message);
+});
+```
+
+Note : reject is not a mandatory function.
+
+So now we have 2 promise functions , lets chain them
+
+
+```js
+userData('Sachin')
+.then(getDetail)
+.then((fulfilled) => {
+    console.log(fulfilled)
+})
+.error((error) => {
+  console.log(error.message);
+});
+
+```
+So when we get response from 1st promise in first .then condition then we are calling the second promise in that
+and in 2nd .then we are getting response of 2nd promise.
+
+As we can see .error condition is common for all the promises. So when ever any condition fails in any promise it will
+directly go to the .error condition.

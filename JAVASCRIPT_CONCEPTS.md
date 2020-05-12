@@ -513,11 +513,14 @@ let namePromise = new Promise((resolve, reject) => {
 
 Promises have 3 states :
 
-#### Pending: We are still waiting for the response.
+##### Pending:
+ We are still waiting for the response.
 
-#### Fulfilled: Success response from the promise
+##### Fulfilled: 
+Success response from the promise
 
-#### Rejected: error or unexpected response from the promise
+##### Rejected: 
+error or unexpected response from the promise
 
 #### Creating a promise :
 

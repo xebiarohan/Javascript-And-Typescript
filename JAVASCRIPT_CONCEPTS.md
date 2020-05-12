@@ -446,6 +446,12 @@ a=20 b=10
 A promise is an Object that will produce a single asyncronous value. 
 We know that we will get a value but dont know when.
 
+#### Characteristics of Promises
+1. Promises are eager in nature. As soon as you promise constructor is called it will start executing.
+2. Promise returns only once.
+3. Once promise is start executing , you cannot cancel it.
+4. Once promise settled (success or error), its value will not change.
+
 Promises have 3 states :
 
 #### Pending: We are still waiting for the response.
@@ -453,12 +459,12 @@ Promises have 3 states :
 #### Rejected: error or unexpected response from the promise
 
 #### Creating a promise :
-Promise contains two functions (response and reject)
+Promise contains two functions (resolve and reject)
 
 ```js
-let samplePromise = new Promise((response,reject) => {
+let samplePromise = new Promise((resolve,reject) => {
   if(some condtion) {
-    response({value: 'response Value'});
+    resolve({value: 'response Value'});
   } else {
     reject({error : 'Failed!!!'})
   }
@@ -467,22 +473,22 @@ let samplePromise = new Promise((response,reject) => {
 ```
 
 Here we created  a sample promise. So when someone execute this promise then based on the condition it will get value from
-either response or reject.
+either resolve or reject.
 
 lets take an example:
 we will create a user data promise. It will return userData if data is present or will return error if user is not present.
 
 ```js
-let userData = (user) => new Promise ((response,reject) => {
+let userData = (user) => new Promise ((resolve,reject) => {
  if(user === "Sachin") {
-    response({userName: 'Sachin',age: 40})
+    resolve({userName: 'Sachin',age: 40})
  } else {
     reject({message: 'User Not found'});
  }
 });
 
 ```
-So here we created a userData promise , that will take a user and checks if userName is 'Sachin' then it will return a response else it will return a reject.
+So here we created a userData promise , that will take a user and checks if userName is 'Sachin' then it will return a resolve function response else it will return a reject function response.
 
 #### Consuming a promise :
 
@@ -496,7 +502,7 @@ promise.then(
 
 ```
 
-If response is executed in promise then  onFulfilled method is executed, If reject is executed then onRejected will execute.
+If resolve is executed in promise then  onFulfilled method is executed, If reject is executed then onRejected will execute.
 
 ```js
 userData('Sachin').then((fulfilled) => {
@@ -521,9 +527,9 @@ again return a new promise.
 lets create a new promise first :
 
 ```js
-let getDetail = (userDetails) => new Promise((response,reject) => {
+let getDetail = (userDetails) => new Promise((resolve,reject) => {
 let message = 'User name is ' + userDetails.userName + ' and age is '+ userDetails.age;
-response(message);
+resolve(message);
 });
 ```
 
@@ -543,8 +549,10 @@ userData('Sachin')
 });
 
 ```
-So when we get response from 1st promise in first .then condition then we are calling the second promise in that
-and in 2nd .then we are getting response of 2nd promise.
+So when we get resolve from 1st promise in first .then condition there we passing the 2nd promise
+and in 2nd .then we are getting resolve of 2nd promise.
 
 As we can see .error condition is common for all the promises. So when ever any condition fails in any promise it will
 directly go to the .error condition.
+
+

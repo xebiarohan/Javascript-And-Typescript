@@ -100,7 +100,7 @@ JavaScript interprets numeric constants as hexadecimal if they are preceded by 0
     y ==z          // false object cannot be compared
     
     typeof x       // number
-    typeOf y       //object
+    typeof y       //object
 ```    
     
 JavaScript treats primitive values as objects when executing methods and properties

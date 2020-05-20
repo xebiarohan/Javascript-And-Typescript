@@ -229,6 +229,18 @@ var getFullName = class fullName {
 
 ### 2. Immutability In Javascript
 
+By Immutability, I am not referring to const in javascript. As arrays and objects defined with const can be changed like
+
+```js
+const arr = [1,2,3];
+arr[3] = 4;
+console.log(arr);   // [1,2,3,4];
+
+const obj = {firstName="Virat"}
+obj.lastName = "Kohli";
+console.log(obj);    // {firstName="Virat", lastName="Kohli"}
+```
+
 We can achieve immutability with 3 different methods and of different level.
 
 What is a object in javascript ? :

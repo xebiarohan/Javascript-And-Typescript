@@ -148,7 +148,7 @@ Math.pow(5,2)    //25
 Now
 
 let x = 5**2;    // 25
-```js
+```
 
 #### Object.is()
 
@@ -165,3 +165,24 @@ Similarly in case of NaN
 console.log(NaN === NaN);  // false
 console.log(Object.is(NaN,NaN))  // true
 ```
+
+#### Default parameter
+We can define the default value in function parameter. So if we dont pass any parameter value we can use the default value
+example :
+Here we have 2 functions 1 with default value and other without default value.
+```js
+const sum = (a=0,b=0,c = 0) => {
+   return a+b+c;
+}
+
+const add = (a,b,c) => {
+   return a+b+c;
+}
+
+sum(1,2);   // 3
+
+add(1,2);   // NaN
+
+```
+
+In first function we have default value of c, So we got the result. In second function we have to provide all the parameter value otherwise it will return NaN 

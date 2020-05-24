@@ -83,6 +83,26 @@ const mult = (x,y = 10) => x*y;
 mult(5);   // 50
 ```
 
+We can define the default value in function parameter. So if we dont pass any parameter value we can use the default value
+example :
+Here we have 2 functions 1 with default value and other without default value.
+```js
+const sum = (a=0,b=0,c = 0) => {
+   return a+b+c;
+}
+
+const add = (a,b,c) => {
+   return a+b+c;
+}
+
+sum(1,2);   // 3
+
+add(1,2);   // NaN
+
+```
+
+In first function we have default value of c, So we got the result. In second function we have to provide all the parameter value otherwise it will return NaN 
+
 #### Array.find()
 This method is used to find the value from an array as per the condition passed as a parameter to
 it. It will return the first value which satisfies the condition.
@@ -166,23 +186,51 @@ console.log(NaN === NaN);  // false
 console.log(Object.is(NaN,NaN))  // true
 ```
 
-#### Default parameter
-We can define the default value in function parameter. So if we dont pass any parameter value we can use the default value
-example :
-Here we have 2 functions 1 with default value and other without default value.
+#### String Interpolation
+String interpolation is used to add dynamic string value in constant string.
+Till ES5 we used to write code like :
+
 ```js
-const sum = (a=0,b=0,c = 0) => {
-   return a+b+c;
-}
+const name ={firstName: 'Harbajan', lastName: 'singh'}
 
-const add = (a,b,c) => {
-   return a+b+c;
-}
-
-sum(1,2);   // 3
-
-add(1,2);   // NaN
-
+let heading = "Indian best spinner name is " + name.firstName + " " + name.lastName;
 ```
 
-In first function we have default value of c, So we got the result. In second function we have to provide all the parameter value otherwise it will return NaN 
+Now in ES6
+
+```js
+`Indian best spinner name is ${name.firstName} ${name.lastName}`
+```
+
+#### String Repeating
+If we want to create a string by repeating some specific string then we can use this method.
+
+```js
+('ABC').repeat(4);    // "ABCABCABCABC"
+```
+
+
+#### Spread operator
+Spread operator allows an iterable to expand in places where 0+ arguments are expected. It is mostly used in variable array where there is more than 1 values are expected
+
+```js
+const arr = [1,2,3,4,5];
+console.log(...arr);  // 1 2 3 4 5
+
+console.log(arr);  // (5) [1, 2, 3, 4, 5]
+```
+Here we can see the difference between printing array and printing values. Here we are printing array values using spread operator.
+
+Merging array using spread operator
+```js
+const arr1 = [1,2,3];
+const arr2 = [4,5];
+const arr = [...arr1,...arr2];   // [1,2,3,4,5]
+```
+converting char array from string
+
+```js
+const name = "Yuvraj";
+const chars = [...name];   //(6) ["Y","u","v","r","a","j"];
+```
+

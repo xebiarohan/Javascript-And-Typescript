@@ -234,3 +234,36 @@ const name = "Yuvraj";
 const chars = [...name];   //(6) ["Y","u","v","r","a","j"];
 ```
 
+#### Destructuring Assignment
+This makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+
+```js
+let arr = [1,2,3,4,5];;
+
+const [a,b,c,d,e] = arr;
+console.log(a);  //1
+console.log(b);  //2
+console.log(c);  //3
+console.log(d);  //4
+console.log(e);  //5
+
+```
+Its not important to give vabiables equal to the array size. We can give lesser variables also like :
+
+```js
+let arr = [1,2,3,4,5];
+
+const [a,b] = arr;
+console.log(a);  //1
+console.log(b);  //2
+```
+Similarly we have it in Object 
+
+```js
+let obj = {firstName: 'Kapil', lastName: 'Dev'};
+
+let {firstName:name} = obj;
+
+console.log(name)   // Kapil
+```
+

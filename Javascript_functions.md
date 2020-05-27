@@ -220,7 +220,7 @@ We can use different quotes in string as long as they are not used to declate st
 
 or if we want to use the same quote then we have to use escape chanracter
 
-       b = 'he isn\'t going there"
+       b = 'he isn\'t going there'
        
 Other Escape characteers 
 
@@ -245,7 +245,7 @@ value of two object cannot be compared directly
         y ==z   // false
         x == y  // true
         x ===z   // false
- We can compare Object using lodash _.isEqual() methid
+ We can compare Object using lodash _.isEqual() method
 
 
 ### String Methods

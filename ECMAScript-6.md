@@ -425,3 +425,49 @@ Before
 After
 Result //after 5s
 ```
+
+## ECMAScript9 -ECMAScript 2018
+
+#### Asynchronous iterators
+
+Asynchronous iterators are just like synchronous iteratos except the next metod returns a promise. To consume asynchronous iterables, we can now use the await keyword with for … of loops.
+
+```js
+async function example() {
+   // Regular iterator
+   for (const item of NumberIterator) {
+      // …
+   }
+   // Async iterator
+   for await (const item of AsyncNumberIterator) {
+      // …
+   }
+}
+
+```
+
+####  Regex changes
+There are lots of regex changes happen in ES9.
+
+
+####  Rest/Spread Properties
+Rest/Spread operator first introduced in ES6. now we have some updates in the operator. we can use it to copy all the remaining properties in a new object.
+
+```js
+const values = {a: 1, b: 2, c: 3, d: 4};
+const {a, ...n} = values;
+console.log(a);   //1
+console.log(n);   // prints {b: 2, c: 3, d: 4}
+
+```
+
+#### Promise finally method
+Finally method is introduced in promise which will always gets executed even its a success response or an error response.
+
+```js
+fetch('/files')
+.then(data => data.json())
+.catch(err => console.error(err))
+.finally(() => console.log('processed!'))
+
+```

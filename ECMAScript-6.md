@@ -314,11 +314,114 @@ includes method returns boolean. So no need to do extra checks.
 This operator is mostly used in doing Maths and some calculations. Till ES6 we use to use Math.pow() function or sometimes write our own boilerplate code to get a simple exponential functionality. 
 
 ```js
-Math.pow(2,3);    //8
+Math.pow(2,3);    //8## ECMAScript7 -ECMAScript 2016
 
 ```
 In ES7 they gave a very simple and shorter syntax to acheive the same thing.
 
 ```js
 2**3   //8
+```
+
+## ECMAScript8 -ECMAScript 2017
+
+#### String padding
+It will add some extra characters to a string. It can be in front of the string or at the end.There are 2 method in String padding
+ > padStart()
+ > padEnd()
+ 
+```js
+'script'.padStart(6);           // 'script'
+'script'.padStart(7);           // ' script'
+'script'.padStart(10,'java')    // 'javascript'
+
+'java'.padEnd(4);               // 'java'
+'java'.padEnd(5);               // 'java '
+'java'.padEnd(10,'script');     // 'javascript'
+```
+
+#### Object.values()
+This method returns an array of all the values present in an object
+
+```js
+let name = {firstName: 'sachin', lastName: 'Tendulkar'}
+Object.values(name);            // (2) ["sachin", "Tendulkar"]
+
+```
+
+
+#### Object.entries()
+This method returns an array of key-value pair of an object.
+
+```js
+let name = {firstName: 'sachin', lastName: 'Tendulkar'}
+Object.entries(name);
+
+// Output
+[
+  [
+    "firstName",
+    "sachin"
+  ],
+  [
+    "lastName",
+    "Tendulkar"
+  ]
+]
+
+```
+
+
+#### getOwnPropertyDescriptors()
+This method will return the description of all the properties of an object.
+
+properties like value,writable, enumerable,configurable, get and set
+
+```js
+let name = {firstName: 'sachin', lastName: 'Tendulkar'}
+Object.getOwnPropertyDescriptors(name)
+
+// Output
+{
+  "firstName": {
+    "value": "sachin",
+    "writable": true,
+    "enumerable": true,
+    "configurable": true
+  },
+  "lastName": {
+    "value": "Tendulkar",
+    "writable": true,
+    "enumerable": true,
+    "configurable": true
+  }
+}
+```
+
+#### Async functions
+
+When Promises were introduced in ES6, they were meant to solve a problem with asynchronous code, and they did, but over the 2 years that separated ES6 and ES2017, it was clear that promises could not be the final solution. Promises were introduced to solve the famous callback hell problem, but they introduced complexity on their own, and syntax complexity. They were good primitives around which a better syntax could be exposed to the developers: enter async functions.
+
+```js
+function getResult() {
+    return new Promise((resolve) => {
+        setTimeout(() => resolve('Results'), 5000)
+    })
+}
+
+async function execute() {
+    console.log(await getResult())
+}
+
+console.log('Before')
+execute()
+console.log('After')
+
+```
+
+```js
+//Output
+Before
+After
+Result //after 5s
 ```

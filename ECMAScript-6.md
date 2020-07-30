@@ -267,3 +267,58 @@ let {firstName:name} = obj;
 console.log(name)   // Kapil
 ```
 
+## ECMAScript7 -ECMAScript 2016
+
+ES7 is much smaller release than ES6. It has only 2 new changes
+
+#### Array.prototype.includes
+
+Till ES6 to check the presence of an element in an array, we have to do some boilerplace code using indexOf method. indexOf returns the position of element present in an array. But we wanted a boolean value. So, we have to do some extra checks to convert it into boolean.
+
+
+```js
+let fruits = ['apple','mango','pineapple'];
+// wrong implenentation
+if(fruits.indexOf('aaple')) {
+        console.log('Available');
+}
+
+```
+
+First we see why index of is not a perfect implementation. In the abovemple we can see we are trying to find an element in an array, which is present at 0th position. So, indexOf will return 0 and in if condition 0 turns into false. So even if the value is present we have to add some extra checks.
+
+So we have to do something like:
+```js
+let fruits = ['apple','mango','pineapple'];
+// till ES6 
+if(fruits.indexOf('aaple') !==1)
+        console.log('Available');
+}
+
+```
+
+Now we have a very simple method in ES7. where we need not add these extra checks
+
+```js
+let fruits = ['apple','mango','pineapple'];
+// ES7
+if(fruits.includes('apple'))
+        console.log('Available');
+}
+
+```
+
+includes method returns boolean. So no need to do extra checks.
+
+#### Exponentiation Operator
+This operator is mostly used in doing Maths and some calculations. Till ES6 we use to use Math.pow() function or sometimes write our own boilerplate code to get a simple exponential functionality. 
+
+```js
+Math.pow(2,3);    //8
+
+```
+In ES7 they gave a very simple and shorter syntax to acheive the same thing.
+
+```js
+2**3   //8
+```

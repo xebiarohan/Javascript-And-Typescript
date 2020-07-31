@@ -471,3 +471,114 @@ fetch('/files')
 .finally(() => console.log('processed!'))
 
 ```
+
+
+
+## ECMAScript10 -ECMAScript 2019
+
+#### Array.flat()
+This method is used for flattening 1 level in array.
+
+```js
+let fruits = [['apple','mango'],['banana','pineapple']];
+fruits.flat();
+//  ["apple", "mango", "banana", "pineapple"]
+
+```
+
+
+#### Array.flatMap()
+This method is a combination of flat and map method of array. let we have an array of fruits, we 
+
+```js
+let sentences = [
+    "JavaScript Array flatMap()", 
+    " ", 
+    "is", 
+    " ", 
+    "Awesome"
+];
+
+let words = sentences.flatMap(s => s.split(' '));
+console.log(words);
+
+// Output 
+[ 'JavaScript', 'Array', 'flatMap()', '', '', 'is', '', '', 'Awesome' ]
+
+
+```
+
+#### String trim
+It has 2 methods- trimStart() and trimEnd() which trims the blank space from start and end respectively.
+
+```js
+const str = '   untrimmedString    ';
+str.trimStart();          // 'untrimmedString    ';
+
+str.trimEnd();           // '   untrimmedString';
+
+```
+
+
+####  Object.fromEntries()
+It is used to create a new Object from a given object. It adds all the key-value pair of given object to new Object.
+
+```js
+const fruits = [['mango','1'],['pineapple','2']];
+const fruitsFromArr = Object.fromEntries(fruits);
+// {mango: 1,pineapple:2}
+
+const fruits = {mango: 1,pineapple:2};
+const fruitsFromObj = Object.fromEntries(fruits);
+// {mango: 1,pineapple:2}
+
+```
+
+#### Optional Catch Binding
+Previously till ES9 we have to provide a parameter in catch block of try-catch statement. Now its optional
+
+```js
+try {
+ // do something
+}
+catch {
+        // catch block without parameter
+}
+
+```
+
+#### Function's toString() method updated
+Previously when we use to do toString on a function, It removes all the white space, new lines and comments but now from ES10 everything will be retained
+
+```js
+const sum = (a,b) => {
+        return a +b;
+}
+
+sum.toString();
+
+// output
+
+const sum = (a,b) => {
+        return a +b;
+}
+
+```
+
+#### Symbol Description Accessor
+
+When you create a symbol you can provide a string as a description:
+
+```js
+const symbol = Symbol("Some description");
+```
+
+Previously, we need to call the toString method to get the description.
+```js
+symbol.toString();
+```
+Now, we have a getter to access the description
+
+```js
+symbol.desc();
+```
